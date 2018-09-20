@@ -71,20 +71,49 @@ second();
   // HINT: You may want to create a `randomPosition()` function that you can use
   //       to set the ducks' initial locations and in your `moveDuck()` function;
 
+
   // 9. Keep going! Move onto part 3!
 
   // --------------------------- PART 3 ------------------------------------
 
-  // 11. BOOM. Attach a "click" handler that adds the "shot" class to
+  // 11. BOOM. Attach a "click" handler that toggle the "shot" class to
   //     the duck when you click on it!
+
+
+body.addEventListener('click', shotDuck)
+
+function shotDuck (event) {
+  if (event.target.classList[0] === 'duck') {
+  event.target.classList.add('shot')
+
+  setTimeout(function() {
+    let ducks = document.querySelector('.shot')
+  ducks.remove();
+  }, 1000)
+  }
+}
+
+shotDuck();
+
 
   // 12. After a duck has been clicked on, remove it from the DOM after
   //     a short delay (1 second) Hint Hint...use setTimeout
   //     as for removing the element check out https://dzone.com/articles/removing-element-plain
 
+// function removeDuck () {
+// if (div.ClassList === 'shot') {
+//  setTimeout(function() {
+//   let ducks = document.querySelector('div')
+//     ducks.parentNode.removeChild(div)
+//   }, 1000) }
+
+// }
+// removeDuck(shotDuck);
   // 13. Create a new function named checkForWinner() that reads the DOM
   //     to see if there are any ducks left. (How can we check the DOM for more than one element?, and how can we see how many elements we get back) If not, alert "YOU WIN!"
+function checkForWinner () {
 
+}
   // 14. BONUS: The ducks are moving pretty erratically, can you think
   //     of a way to adjust the ducks speed based on how far needs to move?
 
