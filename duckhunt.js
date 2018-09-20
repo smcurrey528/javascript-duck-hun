@@ -1,15 +1,28 @@
 window.onload = function() {
   const body = document.body;
 
-  console.log(body);
+
 
   // 1. Create a <div> with the class "duck" and add it to the body.  Do this step by step
   // ( 1. create the element
   //   2. add a class to the element
   //   3. append the element to the body )
+function createDuck () {
+const div = document.createElement('div')
+div.classList.add('duck')
+body.appendChild(div);
+
+
 
   // 2. Next, use setInterval to toggle the "flap" class on the duck every 250 ms (1/4 second)
   // https://www.w3schools.com/jsref/met_win_setinterval.asp
+function flap () {
+
+setInterval(function() {
+  div.classList.toggle("flap");
+}, 250)
+}
+flap();
 
   // 3. Fantastic!  Now, let's move the duck using CSS "top" and "left". Create
   // a function `moveDuck` that takes a duck object as an argument and sets the
@@ -17,8 +30,22 @@ window.onload = function() {
   // HINT: Use Math.random() * window.innerWidth    for "left"
   //       And Math.random() * window.innerHeight   for "top"
 
+  function moveDuck () {
+div.style.left = (Math.random() * window.innerWidth) + 'px'
+div.style.top = (Math.random() * window.innerHeight) + 'px'
+  }
+
+  moveDuck();
+
   // 4. Try making the duck move to a different location every second (what did we use to do this several lines up??)
 
+function second () {
+
+setInterval(function() {
+  moveDuck();
+}, 1000)
+}
+second();
   // 5. Congratulations! Move on to part 2!
 
   // ---------------------------- PART 2 ---------------------------------
@@ -27,8 +54,17 @@ window.onload = function() {
   //    a "function" called createDuck() that does everything in 1-4
   //    and "returns" the duck object
 
+
+  }
+
+  // createDuck();
+
   // 7. Now, let's create lots of ducks!  Use a "for" loop to create 5 ducks
   //    using our fancy new createDuck() function
+
+  for (let i=0; i < 5; i++) {
+    createDuck();
+  }
 
   // 8. Uh oh, our ducks are overlapping.  Modify createDuck so each time
   //     it creates a duck, it appears in a random location
